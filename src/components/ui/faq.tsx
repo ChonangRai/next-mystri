@@ -65,7 +65,7 @@ const FAQSection = () => {
                 onClick={() => toggleAnswer(index)}
                 className="cursor-pointer flex items-center gap-3 p-4 bg-white rounded-md shadow-md hover:bg-gray-100 transition duration-200"
               >
-                <FaQuestionCircle className="text-gray-600 text-2xl" />
+                <FaQuestionCircle className="text-gray-600 text-4xl" />
                 <span className="text-lg font-semibold">{faq.question}</span>
               </div>
 

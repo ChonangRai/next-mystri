@@ -1,10 +1,7 @@
-
 import { useState, useEffect } from "react";
 import { Rubik_Mono_One, Bungee_Shade } from "next/font/google";
 import { Home, ShieldCheck, Wrench } from "lucide-react";
 import Testimonials from "../ui/testimonial";
-import { Button } from "../ui/button";
-import ContactForm from "../ui/contact";
 import FAQSection from "../ui/faq";
 
 const images = [
@@ -40,6 +37,9 @@ const benefits = [
 
 const Landing = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedUrgency, setSelectedUrgency] = useState("");
+  const [showWarning, setShowWarning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,78 +48,69 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleSubmit = () => {
+    if (!selectedService || !selectedUrgency) {
+      setShowWarning(true);
+    } else {
+      window.location.href = `/booking?service=${selectedService}&urgency=${selectedUrgency}`;
+    }
+  };
+
   return (
     <div className="bg-yellow-100">
       {/* Hero Section */}
-      <section className="relative w-full h-screen flex flex-col md:flex-row items-center overflow-hidden">
-        {/* Left - Image Carousel */}
-        <div className="relative w-full md:w-1/2 h-full">
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-                index === currentImage ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ backgroundImage: `url(${img})` }}
-            />
-          ))}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-
-        {/* Right - Text Content */}
-        <div className="relative z-10 max-w-3xl md:w-1/2 flex flex-col items-center text-center px-4 md:px-8">
-          {/* Main Heading */}
-          <p
-            className={`${bgs.className} text-4xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-700 mt-10 leading-tight`}
-          >
-            We Fix. <br /> You Relax.
-          </p>
-
-          {/* Subheading */}
-          <p className="mt-4 text-lg sm:text-xl text-gray-700">
-            All-in-One Handyman Services— reliable, affordable, and done right.
-          </p>
-
-          {/* Stats Section */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mt-6">
-            {[
-              { number: "5+", text: "Years of Excellence" },
-              { number: "5K+", text: "Homes & Properties Served" },
-              { number: "100%", text: "Customer Satisfaction" },
-            ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <span
-                  className={`${bunge.className} text-4xl sm:text-5xl font-bold text-gray-800`}
-                >
-                  {item.number}
-                </span>
-                <p className="text-sm text-gray-700">{item.text}</p>
-              </div>
-            ))}
+      <section className="relative w-full h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000" style={{ backgroundImage: `url(${images[currentImage]})` }} />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12">
+          <div className="text-left text-white md:w-1/2">
+            <p className={`${bgs.className} text-4xl md:text-6xl sm:text-2xl leading-tight`}>We Fix. <br /> You Relax.</p>
+            <p className="mt-4 text-lg md:text-xl">All-in-One Handyman Services— reliable, affordable, and done right.</p>
+                      {/* Stats Section */}
+                      <div className="flex flex-wrap gap-8 mt-10">
+              {[{ number: "5+", text: "Years" }, { number: "5K+", text: "Projects" }, { number: "100%", text: "Satisfaction" }].map((item, index) => (
+                <div key={index} className="flex flex-col">
+                  <span className={`${bunge.className} text-3xl md:text-4xl font-bold`}>{item.number}</span>
+                  <p className="text-sm md:text-base">{item.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-
-          {/* CTA Button */}
-          <div className="mt-8 flex justify-center">
-            <Button className="px-6 py-5 text-lg bg-blue-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all">
+          
+          <div className="bg-white p-6 md:w-1/3">
+            <h3 className="text-xl font-bold text-gray-800">Get Your Free Estimate</h3>
+            <hr className="mb-5 h-0.5 border-t-1 bg-neutral-100 dark:bg-white/50" />
+            <p className="text-gray-800 text-sm mb-2">Select a service to get an instant estimate</p>
+            <select className="w-full p-3 border" value={selectedService} onChange={(e) => setSelectedService(e.target.value)}>
+              <option value="">Select a Service</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Painting">Painting & Denting</option>
+              <option value="General Repairs">General Repairs</option>
+            </select>
+            <p className="text-gray-800 text-sm my-2">When do you need it done?</p>
+            <select className="w-full p-3 border" value={selectedUrgency} onChange={(e) => setSelectedUrgency(e.target.value)}>
+              <option value="">Select Urgency</option>
+              <option value="Standard">Standard</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+            {showWarning && <p className="text-red-500 text-sm">Please select both service and urgency.</p>}
+            <button 
+              className={`w-full mt-5 px-4 py-3 rounded-md transition-all ${selectedService && selectedUrgency ? 'bg-black text-white hover:bg-gray-700' : 'bg-gray-400 cursor-not-allowed'}`} 
+              onClick={handleSubmit} 
+              disabled={!selectedService || !selectedUrgency}
+              onMouseEnter={() => setShowWarning(!selectedService || !selectedUrgency)}
+            >
               Get My Free Estimate
-            </Button>
+            </button>
           </div>
-
-          {/* Footer Note */}
-          <p className="py-2 text-gray-700 text-sm">
-            We respect your time— just click and let us know what you need.
-          </p>
         </div>
       </section>
-
       <section className="py-16 bg-gray-100 text-center">
         <h2 className="text-3xl font-bold mb-8">Why Choose Mystri?</h2>
         <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center transform transition duration-300 hover:scale-105"
-            >
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center transform transition duration-300 hover:scale-105">
               {benefit.icon}
               <h3 className="text-xl font-semibold mt-4">{benefit.title}</h3>
               <p className="text-gray-600 mt-2">{benefit.description}</p>
@@ -128,11 +119,7 @@ const Landing = () => {
         </div>
       </section>
       <Testimonials />
-      <ContactForm />
       <FAQSection />
-
-
-      
     </div>
   );
 };
