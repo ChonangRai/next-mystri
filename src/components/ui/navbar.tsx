@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "react-feather";
 import Image from "next/image";
@@ -46,7 +47,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-lg text-white">
+        <ul className="hidden md:flex space-x-8 text-lg text-yellow-200">
           {["Home", "About", "Services", "Contact"].map((item) => (
             <li key={item}>
               <a

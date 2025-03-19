@@ -1,3 +1,4 @@
+"use client";
 import { FaWhatsapp, FaComments, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
