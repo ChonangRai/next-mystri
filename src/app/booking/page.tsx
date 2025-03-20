@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -6,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 type Service = "Plumbing" | "Electrical" | "Painting & Denting" | "General Repairs";
 type Urgency = "Standard" | "Urgent";
 
-// Base service prices (you will replace this with the database value later)
+// Base service prices (you will replace this with the database value later on)
 const baseServicePrices: Record<Service, number> = {
   Plumbing: 30,
   Electrical: 40,
@@ -196,4 +197,10 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default function BookingPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Booking />
+    </Suspense>
+  );
+}
