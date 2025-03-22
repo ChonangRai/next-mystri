@@ -87,7 +87,7 @@ const Landing = () => {
             opacity: 1,
           }}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="relative w-full max-w-7xl mx-auto mb-5 flex flex-col md:flex-row items-center justify-between px-6 md:px-12">
           <div className="text-left text-yellow-200 md:w-1/2">
             <p

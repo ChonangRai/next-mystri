@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "react-feather";
 import Image from "next/image";
-import { Big_Shoulders_Stencil_Display } from "next/font/google";
+// import { Big_Shoulders_Stencil_Display } from "next/font/google";
+import Link from "next/link";
 
-const bgs = Big_Shoulders_Stencil_Display({
-  subsets: ["latin"],
-  weight: "400",
-});
+// const bgs = Big_Shoulders_Stencil_Display({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,30 +33,27 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo & Brand Name */}
         <div className="flex items-center space-x-3">
-          <Image
-            src={"/images/logo-mystri.png"}
-            alt="Logo"
-            width={60}
-            height={60}
-            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
-          />
-          <h1
-            className={`${bgs.className} "text-xl font-bold text-yellow-200 md:text-2xl lg:text-3xl xl:text-4xl hover:font-bold transition-all duration-300 cursor-pointer"`}
-          >
-            MYSTRI
-          </h1>
+          <Link href={"/"}>
+            <Image
+              src={"/images/logo-mystri.png"}
+              alt="Logo"
+              width={100}
+              height={100}
+              className="w-24 h-24 sm:w-16 sm:h-16 object-contain"
+            />
+          </Link>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-lg text-yellow-200">
           {["Home", "About", "Services", "Contact"].map((item) => (
             <li key={item}>
-              <a
+              <Link
                 href={`/${item.replace(/\s+/g, "").toLowerCase()}`}
                 className="hover:scale-105 hover:font-bold transition-all duration-300"
               >
                 {item}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,15 +84,15 @@ const Navbar = () => {
 
           {/* Mobile Menu Links */}
           <ul className="space-y-4 text-center text-lg py-8">
-            {["Home", "About Us", "Our Services", "Contact Us"].map((item) => (
+            {["Home", "About", "Services", "Contact"].map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
+                <Link
+                  href={`${item.replace(/\s+/g, "").toLowerCase()}`}
                   className="block hover:scale-105 hover:font-bold transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
