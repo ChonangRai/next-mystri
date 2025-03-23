@@ -44,7 +44,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-lg text-yellow-200">
           {["Home", "About", "Services", "Contact"].map((item) => (
             <li key={item}>

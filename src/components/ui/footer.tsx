@@ -1,7 +1,21 @@
 "use client";
-import { FaWhatsapp, FaComments, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaComments,
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const Footer = () => {
+  const whatsappNumber = "7898789806"; // Replace with your WhatsApp number (in international format)
+  const message = "Hello, I need assistance."; // Optional message to pre-fill
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+
   return (
     <div className="bg-gray-900 text-white py-12">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -22,9 +36,15 @@ const Footer = () => {
           <FaWhatsapp className="text-green-500 text-4xl mx-auto mb-3" />
           <h3 className="text-xl font-semibold mb-2">WhatsApp Support</h3>
           <p>WhatsApp your queries for instant reply.</p>
-          <button className="mt-4 bg-yellow-500 text-black px-6 py-2 rounded-md font-bold hover:bg-yellow-600">
-            +12-345-678-89089
-          </button>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-500"
+          >
+            +44 (0) 7898 789806
+          </a>
         </div>
 
         {/* Live Chat Section */}
