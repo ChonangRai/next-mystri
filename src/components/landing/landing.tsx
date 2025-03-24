@@ -3,6 +3,7 @@ import { Rubik_Mono_One, Bungee_Shade } from "next/font/google";
 import { Home, ShieldCheck, Wrench } from "lucide-react";
 import Testimonials from "../ui/testimonial";
 import FAQSection from "../ui/faq";
+import Link from "next/link";
 
 const images = [
   "/images/landingPage/hero-bg1.jpg",
@@ -36,27 +37,27 @@ const benefits = [
 ];
 
 // Mapping of services to their numeric values
-const serviceMapping = {
-  Plumbing: 1,
-  Electrical: 2,
-  "Painting & Decoration": 3,
-  "General Repairs": 4,
-};
+// const serviceMapping = {
+//   Plumbing: 1,
+//   Electrical: 2,
+//   "Painting & Decoration": 3,
+//   "General Repairs": 4,
+// };
 
 // Mapping of urgency to their numeric values
-const urgencyMapping = {
-  Standard: 1,
-  Urgent: 2,
-};
+// const urgencyMapping = {
+//   Standard: 1,
+//   Urgent: 2,
+// };
 
-type Service = keyof typeof serviceMapping; // Automatically infers the valid service keys
-type Urgency = keyof typeof urgencyMapping; // Automatically infers the valid urgency keys
+// type Service = keyof typeof serviceMapping; // Automatically infers the valid service keys
+// type Urgency = keyof typeof urgencyMapping; // Automatically infers the valid urgency keys
 
 const Landing = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [selectedService, setSelectedService] = useState<Service | "">(""); // typed as Service or empty string
-  const [selectedUrgency, setSelectedUrgency] = useState<Urgency | "">(""); // typed as Urgency or empty string
-  const [showWarning, setShowWarning] = useState<boolean>(false);
+  // const [selectedService, setSelectedService] = useState<Service | "">(""); // typed as Service or empty string
+  // const [selectedUrgency, setSelectedUrgency] = useState<Urgency | "">(""); // typed as Urgency or empty string
+  // const [showWarning, setShowWarning] = useState<boolean>(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,16 +66,16 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = () => {
-    if (!selectedService || !selectedUrgency) {
-      setShowWarning(true);
-    } else {
-      // Get the numeric value for the selected service
-      const serviceId = serviceMapping[selectedService];
-      const urgencyId = urgencyMapping[selectedUrgency];
-      window.location.href = `/booking?service=${serviceId}&urgency=${urgencyId}`;
-    }
-  };
+  // const handleSubmit = () => {
+  //   if (!selectedService || !selectedUrgency) {
+  //     setShowWarning(true);
+  //   } else {
+  //     // Get the numeric value for the selected service
+  //     const serviceId = serviceMapping[selectedService];
+  //     const urgencyId = urgencyMapping[selectedUrgency];
+  //     window.location.href = `/booking?service=${serviceId}&urgency=${urgencyId}`;
+  //   }
+  // };
 
   return (
     <div className="bg-yellow-100">
@@ -120,8 +121,8 @@ const Landing = () => {
           </div>
 
           {/* CTA Form - Hidden on small screens, visible on md and larger */}
-          <div className="bg-white p-6 hidden md:block md:w-1/3">
-            <h3 className="text-xl font-bold text-gray-800">
+          <div className="bg-gray-600 text-yellow-200  hidden md:block rounded-md hover:cursor-pointer hover:bg-gray-700 transition-all p-3 duration-300">
+            {/*  <h3 className="text-xl font-bold text-gray-800">
               Get Your Free Estimate
             </h3>
             <hr className="mb-5 h-0.5 border-t-1 bg-neutral-100 dark:bg-white/50" />
@@ -157,26 +158,30 @@ const Landing = () => {
               <p className="text-red-500 text-sm">
                 Please select both service and urgency.
               </p>
-            )}
-            <button
+            )}*/}
+
+            {/* <button
               className={`w-full mt-5 px-4 py-3 bg-gray-700 text-white hover:bg-black hover:cursor-pointer transition-all`}
               onClick={handleSubmit}
               onMouseEnter={() =>
                 setShowWarning(!selectedService || !selectedUrgency)
               }
-            >
-              Get My Prices
-            </button>
+            > */}
+            <Link href={"/pages/contact"} className="hover:scale-105">
+              Submit an enquiry
+            </Link>
+            {/* </button> */}
           </div>
 
           {/* Button and reassurance text visible only on small screens */}
           <div className="block md:hidden text-center">
-            <button
-              className={`w-full mt-25 px-4 py-3 bg-blue-700 text-yellow-200 rounded-md transition-all`}
-              onClick={() => (window.location.href = "/booking")}
+            <Link
+              href="/pages/contact"
+              className="w-full mt-6 px-4 py-3 bg-blue-700 text-yellow-200 rounded-md transition-all text-center block"
             >
-              Get My Free Estimate
-            </button>
+              Book Now
+            </Link>
+
             <p className="text-xs text-white mt-2">
               Don&apos;t worry, we only ask what we need to get your estimate!
             </p>

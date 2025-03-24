@@ -48,7 +48,11 @@ const Navbar = () => {
           {["Home", "About", "Services", "Contact"].map((item) => (
             <li key={item}>
               <Link
-                href={`/${item.replace(/\s+/g, "").toLowerCase()}`}
+                href={
+                  item === "Home"
+                    ? "/"
+                    : `/pages/${item.replace(/\s+/g, "").toLowerCase()}`
+                }
                 className="hover:scale-105 hover:font-bold transition-all duration-300"
               >
                 {item}
@@ -86,7 +90,11 @@ const Navbar = () => {
             {["Home", "About", "Services", "Contact"].map((item) => (
               <li key={item}>
                 <Link
-                  href={`${item.replace(/\s+/g, "").toLowerCase()}`}
+                  href={
+                    item === "Home"
+                      ? "/"
+                      : `/pages/${item.replace(/\s+/g, "").toLowerCase()}`
+                  }
                   className="block hover:scale-105 hover:font-bold transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
