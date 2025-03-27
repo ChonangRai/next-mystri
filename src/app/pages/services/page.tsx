@@ -36,7 +36,7 @@ const services = [
   },
   {
     icon: <GiElectricalSocket className="w-12 h-12 text-black" />,
-    title: "Elecricals & Electricity"
+    title: "Elecrical Appliances & Electricity"
   }
 ];
 

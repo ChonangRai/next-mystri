@@ -1,4 +1,4 @@
-import { Users, CheckCircle, Lightbulb, ShieldCheck } from "lucide-react";
+import { CheckCircle, Lightbulb, ShieldCheck } from "lucide-react";
 
 const bg = "/images/service-bg.jpg"; // Change to your preferred background image
 
@@ -80,10 +80,10 @@ const About = () => {
           Our professionals are dedicated to making your space <b>safe, functional, and beautiful</b>.
         </p>
 
-        <div className="mt-8 flex justify-center">
+        {/* <div className="mt-8 flex justify-center">
           <Users className="w-20 h-20 text-gray-400" />
         </div>
-        <p className="text-gray-600 mt-4 italic">More details coming soon...</p>
+        <p className="text-gray-600 mt-4 italic">More details coming soon...</p> */}
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const benefits = [
     icon: <ShieldCheck className="w-12 h-12 text-green-500" />,
     title: "All-in-One Help",
     description:
-      "Plumbing, electrical, denting/painting and more – one team for all your needs.",
+      "Plumbing, electrical, painting, decoration and more – one team for all your needs.",
   },
   {
     icon: <Home className="w-12 h-12 text-yellow-500" />,
