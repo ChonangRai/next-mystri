@@ -13,6 +13,7 @@ export async function POST(req: Request) {
         pass: process.env.EMAIL_PASS, // App password
       },
     });
+    console.log(process.env.EMAIL_USER)
 
     // Email details
     const mailOptions = {
@@ -28,6 +29,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "Email sent successfully!" }, { status: 200 });
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    return NextResponse.json({ error: `Failed to send email ${process.env.EMAIL_PASS}` }, { status: 500 });
   }
 }

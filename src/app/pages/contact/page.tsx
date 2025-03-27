@@ -9,6 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    pnumber: "",
     message: "",
   });
 
@@ -29,9 +30,9 @@ const Contact = () => {
 
     if (response.ok) {
       alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", pnumber: "", email: "", message: "" });
     } else {
-      alert("Failed to send message. Please try again.");
+      alert(`Failed to send message.`);
     }
   };
 
@@ -65,7 +66,7 @@ const Contact = () => {
             <MapPin className="w-10 h-10 text-red-500" />
             <h3 className="text-xl font-semibold mt-4">Our Office</h3>
             <p className="text-gray-600 mt-2">
-            124 City Road City Road, London, England, EC1V 2NX
+              124 City Road City Road, London, England, EC1V 2NX
             </p>
           </div>
 
@@ -109,6 +110,20 @@ const Contact = () => {
                 onChange={handleChange}
                 className="w-full mt-2 p-3 border rounded-lg"
                 placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold">
+                Your Contact Number
+              </label>
+              <input
+                type="tel"
+                name="pnumber"
+                value={formData.pnumber}
+                onChange={handleChange}
+                className="w-full mt-2 p-3 border rounded-lg"
+                placeholder="0712 3456789"
                 required
               />
             </div>
