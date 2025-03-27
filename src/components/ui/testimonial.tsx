@@ -10,20 +10,20 @@ import { FaUserCircle } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Jane D.",
-    text: "Fantastic service! Quick and professional work.",
+    name: "Jane D., Homeowner",
+    text: "I had a plumbing emergency at home, and their team was there within the hour! Not only did they fix the issue quickly, but they also explained everything they were doing. It's rare to find such friendly and professional service these days. Highly recommended!",
     rating: 5,
     profileImage: null,
   },
   {
-    name: "Michael S.",
-    text: "Reliable and skilled, highly recommended!",
+    name: "Michael S., Small Business Owner",
+    text: "I needed renovations done for my shop, and this handyman service delivered ahead of schedule, without compromising on quality. They handled everything—from electrical work to painting—with precision and care. The results speak for themselves, and my customers have noticed the improvement too!",
     rating: 5,
     profileImage: null,
   },
   {
-    name: "Emily R.",
-    text: "They fixed everything perfectly. Stress-free experience!",
+    name: "Emily R., Landowner",
+    text: "From repairing leaks to installing fixtures, this team has been a lifesaver for my rental properties. What impresses me the most is their punctuality and dedication to delivering top-notch results. They truly understand the importance of timely service, and I couldn't be happier with the outcomes!",
     rating: 5,
     profileImage: null,
   },

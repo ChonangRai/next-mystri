@@ -1,13 +1,5 @@
-import {
-  UtensilsCrossed,
-  PaintRoller,
-  Wrench,
-  Leaf,
-  Layers,
-  Hammer,
-  HouseIcon,
-  BuildingIcon,
-} from "lucide-react";
+import { UtensilsCrossed, PaintRoller, Wrench, Leaf, Layers, Hammer, HouseIcon, BuildingIcon, BellElectric} from "lucide-react";
+import { GiElectricalSocket } from "react-icons/gi";
 
 const services = [
   {
@@ -42,6 +34,10 @@ const services = [
     icon: <BuildingIcon className="w-12 h-12 text-gray-500" />,
     title: "Property Maintenance & Repairs",
   },
+  {
+    icon: <GiElectricalSocket className="w-12 h-12 text-black" />,
+    title: "Elecricals & Electricity"
+  }
 ];
 
 const bg = "/images/service-bg.jpg";

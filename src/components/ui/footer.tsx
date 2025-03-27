@@ -48,14 +48,14 @@ const Footer = () => {
         </div>
 
         {/* Live Chat Section */}
-        <div>
+        {/* <div>
           <FaComments className="text-4xl mx-auto mb-3" />
           <h3 className="text-xl font-semibold mb-2">Live Chat</h3>
           <p>The fastest way to get in touch with an Expert.</p>
           <button className="mt-4 bg-yellow-500 text-black px-6 py-2 rounded-md font-bold hover:bg-yellow-600">
             LIVE CHAT
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

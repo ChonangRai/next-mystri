@@ -54,7 +54,7 @@ const About = () => {
       <div className="py-12 bg-gray-100 text-center">
         <h2 className="text-3xl font-bold text-gray-900">Why Choose Us?</h2>
         <p className="mt-4 text-lg text-gray-700">
-          We focus on delivering **top-tier craftsmanship, excellent customer service, and affordable pricing**.
+          We focus on delivering <b>top-tier craftsmanship, excellent customer service, and affordable pricing</b>.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
