@@ -1,7 +1,6 @@
 "use client";
 import {
   FaWhatsapp,
-  FaComments,
   FaFacebook,
   FaTwitter,
   FaInstagram,

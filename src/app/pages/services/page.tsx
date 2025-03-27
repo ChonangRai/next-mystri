@@ -1,4 +1,4 @@
-import { UtensilsCrossed, PaintRoller, Wrench, Leaf, Layers, Hammer, HouseIcon, BuildingIcon, BellElectric} from "lucide-react";
+import { UtensilsCrossed, PaintRoller, Wrench, Leaf, Layers, Hammer, HouseIcon, BuildingIcon} from "lucide-react";
 import { GiElectricalSocket } from "react-icons/gi";
 
 const services = [
