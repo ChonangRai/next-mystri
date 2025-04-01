@@ -67,8 +67,8 @@ export default function Home() {
 
           {/* CTA Form - Hidden on small screens, visible on md and larger */}
           <div className="relative w-1/3 hidden md:block">
-            <div className="absolute -left-4 -bottom-4 w-full h-full bg-white shadow-lg"></div>
-            <div className="relative bg-yellow-200 text-gray-800 p-10">
+            <div className="absolute -left-4 -bottom-4 w-full h-full bg-yellow-200 shadow-lg"></div>
+            <div className="relative bg-white text-gray-800 p-10">
               <p className="text-lg md:text-xl">
                 All-in-One Handyman Services— reliable, affordable, and done
                 right.

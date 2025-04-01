@@ -73,7 +73,7 @@ const Contact = () => {
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
             <Phone className="w-10 h-10 text-green-500" />
             <h3 className="text-xl font-semibold mt-4">Call Us</h3>
-            <p className="text-gray-600 mt-2">+44 (0) 7898 789806</p>
+            <p className="text-gray-600 mt-2">+44 (0) 7388 490340</p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
@@ -160,7 +160,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
+              className="w-full bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-700"
             >
               Send Message
             </button>

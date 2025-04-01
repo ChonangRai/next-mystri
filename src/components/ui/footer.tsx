@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
-  const whatsappNumber = "7898789806"; // Replace with your WhatsApp number (in international format)
+  const whatsappNumber = "7388490340"; // Replace with your WhatsApp number (in international format)
   const message = "Hello, I need assistance."; // Optional message to pre-fill
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -42,7 +42,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-yellow-500"
           >
-            +44 (0) 7898 789806
+            +44 (0) 7388 490340
           </a>
         </div>
 
