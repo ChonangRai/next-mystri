@@ -1,0 +1,87 @@
+[
+    {
+      "category": "painting and decoration",
+      "photos": [
+        { "type": "photo", "src": "/images/services/pd/pd1.jpg", "title": "PD 1", "description": "Photo 1 for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd2.jpg", "title": "PD 2", "description": "Photo 2 for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd3.jpg", "title": "PD 3", "description": "Photo 3 for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd4.jpg", "title": "PD 4", "description": "Photo 4 for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd6.jpg", "title": "PD ", "description": "Photo  for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd7.jpg", "title": "PD ", "description": "Photo  for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd8.jpg", "title": "PD ", "description": "Photo  for Painting & Decoration" },
+        { "type": "photo", "src": "/images/services/pd/pd5.jpg", "title": "PD 5", "description": "Photo 5 for Painting & Decoration" }
+      ]
+    },
+    {
+      "category": "plumbing and heating",
+      "photos": [
+        { "type": "photo", "src": "/images/services/ph/ph1.jpg", "title": "PH 1", "description": "Photo 1 for Plumbing & Heating" },
+        { "type": "photo", "src": "/images/services/ph/ph2.jpg", "title": "PH 2", "description": "Photo 2 for Plumbing & Heating" },
+        { "type": "photo", "src": "/images/services/ph/ph3.jpg", "title": "PH 3", "description": "Photo 3 for Plumbing & Heating" }
+      ]
+    },
+    {
+      "category": "gardening and landscaping",
+      "photos": [
+        { "type": "photo", "src": "/images/services/gl/gl1.jpeg", "title": "GL 1", "description": "Photo 1 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl2.jpeg", "title": "GL 2", "description": "Photo 2 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl3.jpeg", "title": "GL 3", "description": "Photo 3 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl4.jpeg", "title": "GL 4", "description": "Photo 4 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl6.jpeg", "title": "GL 4", "description": "Photo 4 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl7.jpeg", "title": "GL 4", "description": "Photo 4 for Gardening & Landscaping" },
+        { "type": "photo", "src": "/images/services/gl/gl5.jpeg", "title": "GL 5", "description": "Photo 5 for Gardening & Landscaping" }
+      ]
+    },
+    {
+      "category": "tiling and flooring",
+      "photos": [
+        { "type": "photo", "src": "/images/services/tf/tf1.jpeg", "title": "TF 1", "description": "Photo 1 for Tiling & Flooring" },
+        { "type": "photo", "src": "/images/services/tf/tf2.jpeg", "title": "TF 2", "description": "Photo 2 for Tiling & Flooring" }
+      ]
+    },
+    {
+      "category": "kitchen and bathroom",
+      "photos": [
+        { "type": "photo", "src": "/images/services/kb/kb1.jpeg", "title": "KB 1", "description": "Photo 1 for Kitchen & Bathroom" },
+        { "type": "photo", "src": "/images/services/kb/kb2.jpeg", "title": "KB 2", "description": "Photo 2 for Kitchen & Bathroom" },
+        { "type": "photo", "src": "/images/services/kb/kb3.jpeg", "title": "KB 3", "description": "Photo 3 for Kitchen & Bathroom" }      ]
+    },
+    {
+      "category": "building and renovation",
+      "photos": [
+        { "type": "photo", "src": "/images/services/br/br1.jpeg", "title": "BR 1", "description": "Photo 1 for Building & Renovation" },
+        { "type": "photo", "src": "/images/services/br/br2.jpeg", "title": "BR 2", "description": "Photo 2 for Building & Renovation" }
+      ]
+    },
+    {
+      "category": "smart home installation",
+      "photos": [
+        { "type": "photo", "src": "/images/services/shi/shi1.jpg", "title": "SHI 1", "description": "Photo 1 for Smart Home Installation" },
+        { "type": "photo", "src": "/images/services/shi/shi2.jpg", "title": "SHI 2", "description": "Photo 2 for Smart Home Installation" },
+        { "type": "photo", "src": "/images/services/shi/shi3.jpg", "title": "SHI 3", "description": "Photo 3 for Smart Home Installation" },
+        { "type": "photo", "src": "/images/services/shi/shi4.jpg", "title": "SHI 4", "description": "Photo 4 for Smart Home Installation" },
+        { "type": "photo", "src": "/images/services/shi/shi5.jpg", "title": "SHI 5", "description": "Photo 5 for Smart Home Installation" }
+      ]
+    },
+    {
+      "category": "property maintenance and repair",
+      "photos": [
+        { "type": "photo", "src": "/images/services/pmr/pmr1.jpg", "title": "PMR 1", "description": "Photo 1 for Property Maintenance & Repair" },
+        { "type": "photo", "src": "/images/services/pmr/pmr2.jpg", "title": "PMR 2", "description": "Photo 2 for Property Maintenance & Repair" },
+        { "type": "photo", "src": "/images/services/pmr/pmr3.jpg", "title": "PMR 3", "description": "Photo 3 for Property Maintenance & Repair" },
+        { "type": "photo", "src": "/images/services/pmr/pmr4.jpg", "title": "PMR 4", "description": "Photo 4 for Property Maintenance & Repair" },
+        { "type": "photo", "src": "/images/services/pmr/pmr5.jpg", "title": "PMR 5", "description": "Photo 5 for Property Maintenance & Repair" }
+      ]
+    },
+    {
+      "category": "electrical appliances and electricity",
+      "photos": [
+        { "type": "photo", "src": "/images/services/eae/eae1.jpg", "title": "EAE 1", "description": "Photo 1 for Electrical Appliances & Electricity" },
+        { "type": "photo", "src": "/images/services/eae/eae2.jpg", "title": "EAE 2", "description": "Photo 2 for Electrical Appliances & Electricity" },
+        { "type": "photo", "src": "/images/services/eae/eae3.jpg", "title": "EAE 3", "description": "Photo 3 for Electrical Appliances & Electricity" },
+        { "type": "photo", "src": "/images/services/eae/eae4.jpg", "title": "EAE 4", "description": "Photo 4 for Electrical Appliances & Electricity" },
+        { "type": "photo", "src": "/images/services/eae/eae5.jpg", "title": "EAE 5", "description": "Photo 5 for Electrical Appliances & Electricity" }
+      ]
+    }
+  ]
+  

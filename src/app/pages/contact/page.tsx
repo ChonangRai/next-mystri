@@ -39,7 +39,7 @@ const Contact = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
-      <div className="relative h-[40vh] overflow-hidden">
+      <div className="relative h-[30vh] overflow-hidden">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${bg})` }}
