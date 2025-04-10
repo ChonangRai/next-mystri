@@ -32,7 +32,7 @@ export default function SmartHomeInstallation() {
         const data = await response.json();
         const pdCategory = data.find(
           (category: { category: string }) =>
-            category.category.toLowerCase() === "property maintenance and repair"
+            category.category.toLowerCase() === "smart home installation"
         );
 
         if (pdCategory && pdCategory.photos) {
