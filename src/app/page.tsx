@@ -3,6 +3,8 @@ import LandingPage from "@/components/landing/landing";
 import { Bungee_Shade, Roboto, Rubik_Mono_One } from "next/font/google";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { db } from "@/lib/firebase"; // Adjust path if needed
+import { doc, getDoc } from "firebase/firestore";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -12,6 +14,20 @@ const roboto = Roboto({
 const bgs = Rubik_Mono_One({ subsets: ["latin"], weight: "400" });
 const bunge = Bungee_Shade({ subsets: ["latin"], weight: "400" });
 
+// Define TypeScript interface for Firestore data
+interface HomePageContent {
+  hero: {
+    mainText: string;
+    ctaText: string;
+    ctaSubText: string;
+    reassuranceText: string;
+  };
+  stats: Array<{
+    number: string;
+    text: string;
+  }>;
+}
+
 export default function Home() {
   const images = [
     "/images/landingPage/hero-bg1.jpg",
@@ -20,12 +36,46 @@ export default function Home() {
     "/images/landingPage/hero-bg4.jpg",
   ];
   const [currentImage, setCurrentImage] = useState(0);
+  const [content, setContent] = useState<HomePageContent>({
+    hero: {
+      mainText: "We Fix. You Relax.",
+      ctaText: "All-in-One Handyman Services— reliable, affordable, and done right.",
+      ctaSubText:
+        "Let us handle your handyman needs with care and expertise. Trust our team to deliver quality service, every time.",
+      reassuranceText: "Don't worry, we only ask what we need to get your estimate!",
+    },
+    stats: [
+      { number: "5+", text: "Years" },
+      { number: "5K+", text: "Projects" },
+      { number: "100%", text: "Satisfaction" },
+    ],
+  });
+
+  // Fetch content from Firestore
+  useEffect(() => {
+    async function fetchContent() {
+      try {
+        const docRef = doc(db, "pages", "home");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setContent(docSnap.data() as HomePageContent);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching content:", error);
+      }
+    }
+    fetchContent();
+  }, []);
+
+  // Image slideshow
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000); // Change every 5 seconds
     return () => clearInterval(interval);
-  });
+  }, [images.length]);
 
   return (
     <div className={roboto.className}>
@@ -43,15 +93,16 @@ export default function Home() {
             <p
               className={`${bgs.className} text-4xl md:text-6xl sm:text-2xl leading-tight`}
             >
-              We Fix. <br /> You Relax.
+              {content.hero.mainText.split("<br />").map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}
             </p>
             <div className="">
               <div className="flex flex-wrap gap-8 mt-10">
-                {[
-                  { number: "5+", text: "Years" },
-                  { number: "5K+", text: "Projects" },
-                  { number: "100%", text: "Satisfaction" },
-                ].map((item, index) => (
+                {content.stats.map((item, index) => (
                   <div key={index} className="flex flex-col">
                     <span
                       className={`${bunge.className} text-3xl md:text-4xl font-bold`}
@@ -69,15 +120,9 @@ export default function Home() {
           <div className="relative w-1/3 hidden md:block">
             <div className="absolute -left-4 -bottom-4 w-full h-full bg-yellow-200 shadow-lg"></div>
             <div className="relative bg-white text-gray-800 p-10">
-              <p className="text-lg md:text-xl">
-                All-in-One Handyman Services— reliable, affordable, and done
-                right.
-              </p>
+              <p className="text-lg md:text-xl">{content.hero.ctaText}</p>
               <hr className="mb-5 h-0.5 border-t-1 bg-gray-800" />
-              <div className="text-base mb-8">
-                Let us handle your handyman needs with care and expertise. Trust
-                our team to deliver quality service, every time.
-              </div>
+              <div className="text-base mb-8">{content.hero.ctaSubText}</div>
 
               <Link
                 className="px-4 py-3 bg-gray-700 text-yellow-200 hover:bg-gray-900"
@@ -86,41 +131,12 @@ export default function Home() {
                 Contact Us
               </Link>
             </div>
-            {/* <p className="text-gray-800 text-sm mb-2">
-              Select a service to get an instant estimate
-            </p>
-            <select className="w-full p-3 border">
-              <option value="">Select a Service</option>
-              <option value="1">Plumbing & Heating Services</option>
-              <option value="2">Tiling & Flooring</option>
-              <option value="3">Kitchen & Bathroom Fitting</option>
-              <option value="4">Painting & Decoration</option>
-              <option value="5">Gardening & Landscaping</option>
-              <option value="6">Building and Renovation Services</option>
-              <option value="7">Smart Home Installation</option>
-              <option value="8">Property Management</option>
-              <option value="9">Electricals and Electricity</option>
-            </select>
-            <p className="text-gray-800 text-sm my-2">
-              When do you need it done?
-            </p>
-            <select className="w-full p-3 border">
-              <option value="">Select Urgency</option>
-              <option value="Standard">Standard</option>
-              <option value="Urgent">Urgent</option>
-            </select>
-            {showWarning && (
-              <p className="text-red-500 text-sm">
-                Please select both service and urgency.
-              </p>
-            )} */}
           </div>
 
           {/* Button and reassurance text visible only on small screens */}
           <div className="block md:hidden text-center">
-            <p className=" py-5 text-lg text-yellow-200 md:text-xl">
-              All-in-One Handyman Services— reliable, affordable, and done
-              right.
+            <p className="py-5 text-lg text-yellow-200 md:text-xl">
+              {content.hero.ctaText}
             </p>
             <Link
               href="/pages/contact"
@@ -129,7 +145,7 @@ export default function Home() {
               Contact Us
             </Link>
             <p className="text-xs text-white mt-2">
-              Don&apos;t worry, we only ask what we need to get your estimate!
+              {content.hero.reassuranceText}
             </p>
           </div>
         </div>
