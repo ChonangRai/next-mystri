@@ -3,7 +3,7 @@ import LandingPage from "@/components/landing/landing";
 import { Bungee_Shade, Roboto, Rubik_Mono_One } from "next/font/google";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { db } from "@/lib/firebase"; // Adjust path if needed
+import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const roboto = Roboto({
@@ -36,20 +36,8 @@ export default function Home() {
     "/images/landingPage/hero-bg4.jpg",
   ];
   const [currentImage, setCurrentImage] = useState(0);
-  const [content, setContent] = useState<HomePageContent>({
-    hero: {
-      mainText: "We Fix. You Relax.",
-      ctaText: "All-in-One Handyman Services— reliable, affordable, and done right.",
-      ctaSubText:
-        "Let us handle your handyman needs with care and expertise. Trust our team to deliver quality service, every time.",
-      reassuranceText: "Don't worry, we only ask what we need to get your estimate!",
-    },
-    stats: [
-      { number: "5+", text: "Years" },
-      { number: "5K+", text: "Projects" },
-      { number: "100%", text: "Satisfaction" },
-    ],
-  });
+  const [content, setContent] = useState<HomePageContent | null>(null); // Initialize as null
+  const [loading, setLoading] = useState(true); // Add loading state
 
   // Fetch content from Firestore
   useEffect(() => {
@@ -61,9 +49,30 @@ export default function Home() {
           setContent(docSnap.data() as HomePageContent);
         } else {
           console.log("No such document!");
+          setContent({
+            hero: {
+              mainText: "Content Not Found",
+              ctaText: "Please check back later.",
+              ctaSubText: "",
+              reassuranceText: "",
+            },
+            stats: [],
+          });
         }
-      } catch (error) {
-        console.error("Error fetching content:", error);
+      } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+        console.error("Error fetching content:", errorMessage);
+        setContent({
+          hero: {
+            mainText: "Error Loading Content",
+            ctaText: "Please try again later.",
+            ctaSubText: "",
+            reassuranceText: "",
+          },
+          stats: [],
+        });
+      } finally {
+        setLoading(false); // Done loading
       }
     }
     fetchContent();
@@ -76,6 +85,16 @@ export default function Home() {
     }, 5000); // Change every 5 seconds
     return () => clearInterval(interval);
   }, [images.length]);
+
+  // Show loading state while fetching data
+  if (loading) {
+    return <div className={roboto.className}>Loading...</div>;
+  }
+
+  // Render nothing or a fallback if content is still null
+  if (!content) {
+    return <div className={roboto.className}>No content available.</div>;
+  }
 
   return (
     <div className={roboto.className}>
