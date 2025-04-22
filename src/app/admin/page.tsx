@@ -41,7 +41,7 @@ export default function Admin() {
         setUser(user);
         fetchContent();
       } else {
-        router.push('/login');
+        router.push('/admin/login');
       }
     });
     return () => unsubscribe();
